@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <title>FORTSTYLE</title>
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/shop-homepage.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ubicacion del menu -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'producto:index' %}">FORTSTYLE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'producto:index' %}">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" id="user" href="#">usuario: {{ user.username }}</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" id="cerrar" href="{% url 'logout' %}">cerrar session</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    {% block body %}
+<div class="container">
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-5"></h1>
+        <div class="list-group">
+          <a href="{% url 'producto:registro_cliente'  %}" class="btn btn-primary shadow p-3 mb-2 alert-link">Registro Clientes</a>
+          <a href="{% url 'producto:listar_cliente'  %}" class="btn btn-success shadow p-3 mb-2 alert-link">Lista de Clientes</a>
+          <a href="{% url 'producto:registro_producto'  %}" class="btn btn-dark shadow p-3 mb-2 alert-link">Registrar Producto</a>
+          <a href="{% url 'producto:listar_producto'  %}" class="btn btn-danger shadow p-3 mb-2 alert-link">Lista de Productos</a>
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-9 my-5">
+
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="https://caremobile.mx/img/uploads/promociones/-1582906835.png" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://news.mcr.com.es/wp-content/uploads/2018/07/cabecera-noticia-1.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://www.audiocinema.net/images/Elan-home-automation/ELAN-Interfaces-Group-Costa-Rica.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://i.pinimg.com/originals/a9/d8/38/a9d8389795ba5d8d33ed9ce7008a6ffe.png" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://ae01.alicdn.com/kf/H3f53f26bc76f4c65bac7e23085da2dc7K.jpg" alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="https://epmghispanic.media.clients.ellingtoncms.com/img/photos/2014/07/31/Level10M.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Mouse Level 10 de TTesports</a>
+                </h4>
+                <h5>$29.99</h5>
+                <p class="card-text">El Mouse Level 10 tiene un diseño asimétrico, su tamaño es más grande que los ratones
+                  convencionales y su cuerpo es de plástico suave y negro con una base y columna de aluminio. Está diseñado
+                              definitivamente para una mano grande y su peso extra le da firmeza al tacto y al arrastre</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="https://topesdegama.com/app/uploads-topesdegama.com/2018/03/teclado-VicTsing.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Teclado Gamers VicTsing</a>
+                </h4>
+                <h5>$70.99</h5>
+                <p class="card-text">teclado para jugar incluye LEDs que permiten ajustarse al ambiente que necesita cada juego,
+                                   ya que no es lo mismo disfrutar de títulos de acción que uno de estrategia por turnos. El caso,
+                                    es que aparte de los dos modos incluidos por defecto, es posible establecer diferentes configuraciones
+                                    con colores RGB.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="https://www.review-hub.co.uk/wp-content/uploads/2020/04/Teclast-F15-Notebook.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Laptop Lenovo Ideadpad</a>
+                </h4>
+                <h5>$459.999</h5>
+                <p class="card-text">La computadora portátil presenta la mayoría, si no todos, de los elementos de diseño moderno
+                        que caracterizan a los modelos premium. Obtiene un diseño de metal sólido, una gran pantalla de 15,6 ”con biseles
+                        delgados, una bisagra de 180 grados y mucho más</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="https://topesdegama.com/app/uploads-topesdegama.com/2019/02/Nuevos-gaming-logitech.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Auriculares de Logitech</a>
+                </h4>
+                <h5>$25.99</h5>
+                <p class="card-text">accesorios que se pueden considerar como de entrada, pero no les faltan buenos detalles
+                                     como sonido envolvente 7.1 o un contralor de 50 milímetros (compatibles con DTS Headphone: X® 2.0) en el caso del
+                                     auricular G432 que es compatible con conectores 3,5 milímetros y puertos USB</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="https://i.pinimg.com/736x/cf/b3/bb/cfb3bbf1f34b3ea8b9fa44e05ca93e06.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">SkyTech Shadow II Pro</a>
+                </h4>
+                <h5>$759.990</h5>
+                <p class="card-text">SkyTech Shadow II está llena de características estéticas de jugador y un potente sistema de hardware,
+                                     Es realmente una potencia para una variedad de títulos de juegos HD,
+                                     La PC es mucho más superior a sus predecesoras y […] La revisión post SkyTech Shadow II Gaming</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="https://andro4all.com/files/2020/06/Huawei-P-Smart-S-700x400.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Huawei Y7 Prime 2020</a>
+                </h4>
+                <h5>$359.900</h5>
+                <p class="card-text">Huawei ha introducido una variante especial para el Huawei Y7 Prime (2020).
+                                    El Smartphone en su diseño cuenta con una muy llamativa parte posterior de cuero sintético y un
+                                    incremento de la memoria de almacenamiento interno llegando a ser esta de 32 GB en el modelo anterior
+                                    pasando a ser de 64 GB</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock body %}
+  </body>
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">TIENDA ONLINE FORSTYLE &copy; Mi primer sitio web 2020</p>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+                {% if messages %}
+                    {% for m in messages %}
+                        <script>
+                            Swal.fire({
+                                  position: 'top-end',
+                                  icon: 'success',
+                                  text: "{{m}}",
+                                  showConfirmButton: false,
+                                  timer: 3000
+                                })
+                        </script>
+                    {% endfor %}
+                {% endif %}
+
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</html>

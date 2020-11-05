@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+
+{% block titulo %}
+  Listado
+{% endblock titulo %}
+
+{% block body %}
+<div class="my-5">
+<h3 class="card-header border-primary card text-white bg-dark text-center">Listado de Productos Registrados</h3>
+      <td>
+            <button type = "submit" class = "btn btn-dark"><a href="{% url 'producto:registro_producto'  %}"
+                    class="alert-link text-white" style="text-decoration:none">Registrar Producto</a></button>
+      </td>
+    {% if listaproducto %}
+      <table class = "table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Marca</th>
+              <th>Descripcion</th>
+              <th>Valor</th>
+              <th>fecha_creacion</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for producto in listaproducto %}
+              <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre_producto }}</td>
+                <td>{{ producto.marca }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.valor }}</td>
+                <td>{{ producto.fecha_creacion }}</td>
+                <td>
+                      <button type = "submit" class = "btn btn-warning"><a href="{% url 'producto:editar_producto' producto.id %}"
+                                                    class="alert-link text-white" style="text-decoration:none">Editar</a></button>
+                      <button type = "submit" class = "btn btn-danger"><a href="{% url 'producto:eliminar_producto' producto.id %}"
+                                                    class="alert-link text-white" style="text-decoration:none">Eliminar</a></button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    {% else %}
+      <h1>No existen productos registrados</h1>
+    {% endif %}
+</div>
+{% endblock body %}

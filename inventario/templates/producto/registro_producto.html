@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+      Registro de Productos
+{% endblock titulo %}
+
+{% block body %}
+<div class="my-5">
+  <div class="mx-auto" style="width: 700px;">
+    <h3 class="card-header text-white bg-dark text-center my-0" style="width: 40rem;">Registre el Producto</h3>
+    <div class="card-header border-primary" style="width: 40rem;">
+      <form method="POST">
+          {% csrf_token %}
+          {% if error %}
+              <h2>{{ error }}</h2>
+          {% else %}
+          {{ producto_form | crispy }}
+              <button type = "submit" class = "btn btn-primary alert-link text-white">Registrar</button>
+              <button type = "submit" class = "btn btn-dark float-right"><a href="{% url 'producto:listar_producto'  %}"
+                class="alert-link text-white" style="text-decoration:none">Lista de Producto</a></button>
+          {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock body %}

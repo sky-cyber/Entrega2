@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+      Eliminar cliente
+{% endblock titulo %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+  <div class="container">
+    <h1>Eliminacion de cliente selecionado</h1>
+    <center>
+      <form method="POST">
+          {% csrf_token %}
+          <h2>¿Desea eliminar al cliente {{ cliente.nombre_cliente }}?</h2>
+          <div class="container">
+            <br>
+            <br>
+            <button type = "submit" class = "btn btn-success"><a href="{% url 'producto:listar_cliente' %}"
+                            class="alert-link text-white" style="text-decoration:none">Cancelar</a></button>
+            <button type = "submit" class = "btn btn-info alert-link">Eliminar</button>
+          </div>
+      </form>
+    </center>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+{% endblock body %}

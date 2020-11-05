@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+  Listado de Clientes
+{% endblock titulo %}
+
+{% block body %}
+<div class="my-5">
+<h3 class="card-header card text-white bg-dark text-center my-0">Listado de Clientes Registrados</h3>
+      <td>
+            <button type = "submit" class = "btn btn-primary"><a href="{% url 'producto:registro_cliente'  %}"
+                    class="alert-link text-white" style="text-decoration:none">Registrar un Cliente</a></button>
+      </td>
+    {% if listarclientes %}
+      <table class = "table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>rut</th>
+              <th>nombre_cliente</th>
+              <th>apellidos</th>
+              <th>correo</th>
+              <th>celular</th>
+              <th>direccion</th>
+              <th>fecha_creacion</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for producto in listarclientes %}
+              <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.rut }}</td>
+                <td>{{ producto.nombre_cliente }}</td>
+                <td>{{ producto.apellidos }}</td>
+                <td>{{ producto.correo }}</td>
+                <td>{{ producto.celular }}</td>
+                <td>{{ producto.direccion }}</td>
+                <td>{{ producto.fecha_creacion }}</td>
+                <td>
+                      <button type = "submit" class = "btn btn-warning"><a href="{% url 'producto:editar_cliente' producto.id %}"
+                                                    class="alert-link text-white" style="text-decoration:none"> Editar....</a></button>
+                      <button type = "submit" class = "btn btn-danger"><a href="{% url 'producto:eliminar_cliente' producto.id %}"
+                                                    class="alert-link text-white" style="text-decoration:none">Eliminar</a></button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    {% else %}
+      <h1>No existen clientes registrados</h1>
+    {% endif %}
+</div>
+{% endblock body %}
